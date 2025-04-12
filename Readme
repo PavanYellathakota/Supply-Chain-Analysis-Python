@@ -1,0 +1,260 @@
+
+
+<div style="background: linear-gradient(90deg, #00B8D9, #00ACC1); padding: 40px 20px; border-radius: 15px; text-align: center; animation: fadeIn 2s ease-in-out;">
+<h1 style="text-align:center; color:white; font-size:48px; margin-bottom: 10px">Supply Chain Analysis Dashboard</h1>
+<h3 style="text-align:center; color:#ECEFF1; font-weight:normal; font-size: 20px;">Exploring logistics, revenue, and performance metrics</h3>
+</div>
+
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<br>
+
+This project conducts an in-depth analysis of a supply chain dataset stored in `SCA.csv`, uncovering actionable insights into product performance, inventory management, supplier efficiency, shipping logistics, quality control, and customer demographics. Built using Python in a Jupyter Notebook environment, it leverages libraries like `pandas`, `numpy`, and `plotly` for data processing and interactive visualizations.
+
+---
+
+## Dataset Overview
+
+The dataset (`SCA.csv`) contains supply chain data with over 100+ rows and 20+ columns :
+
+| Product_type | SKU  | Price ($) | Availability | Products Sold | Revenue ($) | Customer_demographics | Stock_levels | Supplier_name | Defect_rates (%) |
+|--------------|------|-----------|--------------|---------------|-------------|-----------------------|--------------|---------------|------------------|
+| haircare     | SKU0 | 69.81     | 55           | 802           | 8662.00     | Non-binary            | 58           | Supplier 3    | 0.23             |
+| skincare     | SKU1 | 14.84     | 95           | 736           | 7460.90     | Female                | 53           | Supplier 3    | 4.85             |
+| haircare     | SKU2 | 11.32     | 34           | 8             | 9577.75     | Unknown               | 1            | Supplier 1    | 4.58             |
+| skincare     | SKU3 | 61.16     | 68           | 83            | 7766.84     | Non-binary            | 23           | Supplier 5    | 4.75             |
+| skincare     | SKU4 | 4.81      | 26           | 871           | 2686.51     | Non-binary            | 5            | Supplier 1    | 3.15             |
+
+- **Size**: 100+ rows (sample: 5).
+- **Key Metrics**: Sales, revenue, stock, lead times, shipping, defects, demographics, etc.,
+
+---
+
+## Analysis Sections and Visualizations
+
+## 1. Product Performance Analysis
+### Sales Distribution by Product Type
+![Sales Distribution Pie Chart](assets/Results/Product1.png)
+
+- **Skincare** leads with 45% of total sales.
+- **Haircare** contributes 29.5%.
+- **Cosmetics** makes up 25.5%.
+- **Key Insight**: Skincare is the top performer, driving nearly half the sales. Haircare and cosmetics have smaller, similar shares.
+
+### Revenue vs Number of Products Sold by Product Type
+![Revenue vs Sales Bubble Chart](assets/Results/Product2.png)
+
+- Shows revenue and sales for each SKU (bubble size).
+- Skincare SKUs stand out with high revenue and units sold.
+- **Key Insight**: Builds on the pie chart, showing which specific skincare products are the big winners.
+
+---
+
+## 2. Customer Demographics Analysis
+Explores customer preferences and revenue contributions.
+
+### Revenue Distribution by Customer Demographics
+![Revenue by Demographics Pie Chart](assets/Results/Customer1.png)
+
+- Most revenue comes from the "Unknown" group.
+- Female customers contribute a good share after "Unknown".
+- **Key Insight**: The large "Unknown" group shows we need better customer data. Targeting females more could boost revenue.
+
+### Product Sales by Product Type and Customer Demographics
+![Sales by Demographics Bar Chart](assets/Results/Customer2.png)
+
+- Skincare has the highest sales across all groups.
+- Females buy the most skincare products.
+- Cosmetics sales are steady across known groups, slightly higher for females.
+- Haircare sales are lower overall.
+- "Unknown" group buys a lot, especially skincare and haircare.
+- **Key Insight**: Skincare rules sales, and the "Unknown" group needs attention for better planning.
+
+---
+
+## 3. Stock and Inventory Management
+Assesses stock levels, availability, and turnover.
+
+### Distribution of Product Types in Inventory
+![Inventory Donut Chart](assets/Results/Inventory1.png)
+
+- Skincare takes the largest share of stock.
+- Haircare is second, followed by cosmetics (smallest).
+- **Key Insight**: Skincare’s big stock matches its high sales. Check if haircare and cosmetics stock levels fit demand.
+
+### Supplier Lead Time vs Defect Rates
+![Lead Time vs Defect Rates Scatter Plot](assets/Results/supply1.png)
+
+- Supplier 1: Short lead time, low defects.
+- Supplier 2: Long lead time, high defects.
+- Supplier 5: Medium lead time, highest defects.
+- **Key Insight**: Supplier 1 is fast and reliable. Supplier 2 and 5 need quality checks.
+
+### Average Defect Rates by Supplier
+![Defect Rates by Supplier Bar Chart](assets/Results/supply2.png)
+
+- Supplier 1 has the lowest defect rate.
+- Supplier 5 has the highest.
+- Supplier 2 and 3 are in the middle.
+- **Key Insight**: Supplier 5 needs quality improvement. Supplier 1’s process could be a model.
+
+---
+
+## 4. Supplier Analysis
+Analyzes supplier performance and quality.
+
+### Supplier Distribution by Customer Demographics
+![Supplier by Demographics Stacked Bar Chart](assets/Results/supply3.png)
+
+- Supplier 1 and Supplier 2 sell the most products.
+- "Unknown" group is the biggest buyer for most suppliers.
+- Supplier 3, 4, and 5 have lower sales.
+- **Key Insight**: Top suppliers depend heavily on "Unknown" buyers. Each supplier’s customer base differs slightly.
+
+### Supplier Preference by Customer Demographics and Product Type
+![Supplier Preference Stacked Bar Chart](assets/Results/supply4.png)
+
+- Females prefer Supplier 1 for skincare and cosmetics.
+- Males like Supplier 2 for haircare.
+- Non-binary buyers spread purchases evenly, with Supplier 1 leading in skincare.
+- "Unknown" group buys the most, with Supplier 3 strong in haircare.
+- **Key Insight**: Different groups prefer different suppliers. This can guide marketing and stock decisions.
+
+---
+
+## 5. SKU Analysis
+
+### Revenue Generated by SKU
+![Revenue by SKU Line Chart](assets/Results/SKU1.png)
+
+- Some SKUs earn much more than others.
+- Skincare SKUs often lead in revenue.
+- **Key Insight**: Focus on high-revenue SKUs and review low performers for cuts.
+
+### Stock Levels by SKU
+![Stock Levels by SKU Line Chart](assets/Results/SKU2.png)
+
+- Stock varies across SKUs.
+- Compare with revenue: High stock, low revenue = overstock; low stock, high revenue = stockout risk.
+- **Key Insight**: Match stock to sales to avoid waste or shortages.
+
+### Order Quantities by SKU
+![Order Quantities by SKU Line Chart](assets/Results/SKU3.png)
+
+- Order sizes differ by SKU.
+- High-revenue SKUs with big orders need steady supply.
+- Low-revenue SKUs with big orders may overstock.
+- **Key Insight**: Adjust order sizes based on revenue and stock for efficiency.
+
+---
+
+## 6. Cost Analysis
+
+### Total Shipping Costs by Carrier
+![Shipping Costs by Carrier Bar Chart](assets/Results/cost1.png)
+
+- Carrier B costs the most, Carrier C the least.
+- **Key Insight**: Check why Carrier B is expensive—volume or rates? Carrier C could save money.
+
+### Transportation Costs by Mode
+![Transportation Costs Donut Chart](assets/Results/cost2.png)
+
+- Road costs the most, Sea the least.
+- Rail and Air are similar, just below Road.
+- **Key Insight**: Look at Road routes for savings. Sea could work for slow-moving items.
+
+### Inventory Turnover Ratio by SKU
+![Turnover Ratio Bar Chart](assets/Results/cost3.png)
+
+- Skincare SKUs (e.g., SKU34) have very high turnover.
+- Many SKUs have low turnover (slow-moving).
+- **Key Insight**: Keep stock high for fast movers. Fix slow movers to cut costs.
+
+---
+
+## 7. Quality Control
+
+### Average Defect Rates by Product Type
+![Defect Rates by Product Type Donut Chart](assets/Results/QC2.png)
+
+- Haircare has the highest defect rate.
+- Cosmetics has the lowest.
+- **Key Insight**: Check haircare and skincare production for quality fixes.
+
+### Average Defect Rates by Mode of Transportation
+![Defect Rates by Mode Donut Chart](assets/Results/QC1.png)
+
+- Road has the highest defect rate, Air the lowest.
+- **Key Insight**: Road’s high defects may relate to volume. Normalise data (e.g., by distance) for a fairer look.
+
+---
+
+## Key Takeaways
+- **Skincare** dominates sales, revenue, and stock—focus here for growth.
+- **"Unknown" customers** are a big chunk—collect better data to understand them.
+- **Supplier 1** is reliable; **Supplier 5** needs quality work.
+- **Inventory** needs balancing—high turnover SKUs must stay stocked, low ones reviewed.
+- **Costs** can drop by optimising Road transport and Carrier B.
+- **Quality** issues in haircare and Road transport need attention.
+
+---
+
+## How to Use This Analysis
+- **Business Owners**: Use it to pick top products, suppliers, and cost-saving areas.
+- **Supply Chain Teams**: Plan stock and shipping smarter with these insights.
+- **Marketers**: Target females and decode the "Unknown" group for better campaigns.
+
+---
+
+## Methodology
+- **Tools**: Python with `pandas`, `numpy`, `plotly`.
+- **Visualizations**: Interactive Plotly charts (bar, pie, scatter) with custom colors (e.g., Light Blue `#ADD8E6` for `haircare`, Light Green `#90EE90` for `skincare`).
+- **Processing**: Aggregations (`groupby`), sorting for descending order, and categorization (e.g., availability levels).
+
+---
+
+## Usage
+1. **Setup**: Install dependencies (`pip install pandas numpy plotly`).
+2. **Run**: Execute in Jupyter Notebook with `SCA.csv` in the working directory.
+3. **Interact**: Explore charts via zoom, hover (tooltips), and legends.
+
+---
+
+## Future Work
+- **Expand Metrics**: Include supplier reliability scores or shipping delays.
+- **Advanced Sorting**: Dynamic sorting options within visualizations.
+- **Cost Optimization**: Model cost-saving strategies (e.g., shift from Air to Rail).
+- **Demographic Trends**: Correlate demographics with defect rates or lead times.
+
+---
+  
+## Author
+
+<div align="center">
+  <img src="assets/PYE.SVG" alt="Author Banner" style="width:100%; height:auto; border-radius: 8px;">
+</div>
+
+**Author**: [Pavan Yellathakota]  
+**Date**: April 2025  
+
+---
+
+## Contact Information
+
+You can reach out to me through the following channels:
+
+- **Email**: [pavanyellathakota@gmail.com](mailto:pavanyellathakota@gmail.com)
+- **LinkedIn**: [Pavan Yellathakota](https://www.linkedin.com/in/pavanyellathakota/)
+
+For more projects and resources, check out:
+
+- **GitHub**: [Pavan Yellathakota](https://github.com/PavanYellathakota)
+- **Portfolio**: [pye.pages.dev](https://pye.pages.dev)
+
+---
+
