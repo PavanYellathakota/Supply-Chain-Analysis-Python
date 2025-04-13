@@ -1,18 +1,8 @@
 
 
-<div style="background: linear-gradient(90deg, #00B8D9, #00ACC1); padding: 40px 20px; border-radius: 15px; text-align: center; animation: fadeIn 2s ease-in-out;">
-<h1 style="text-align:center; color:white; font-size:48px; margin-bottom: 10px">Supply Chain Analysis Dashboard</h1>
-<h3 style="text-align:center; color:#ECEFF1; font-weight:normal; font-size: 20px;">Exploring logistics, revenue, and performance metrics</h3>
-</div>
+# Supply Chain Analysis Dashboard
+### Exploring logistics, revenue, and performance metrics
 
-<style>
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style>
-
-<br>
 
 This project conducts an in-depth analysis of a supply chain dataset stored in `SCA.csv`, uncovering actionable insights into product performance, inventory management, supplier efficiency, shipping logistics, quality control, and customer demographics. Built using Python in a Jupyter Notebook environment, it leverages libraries like `pandas`, `numpy`, and `plotly` for data processing and interactive visualizations.
 
